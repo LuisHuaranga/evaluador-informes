@@ -1,0 +1,23 @@
+MENÚ PRINCIPAL
+1. Redirija al menú de todas las funcionalidades para el reporte de EECC
+2. Redirija al menú de todas las funcionalidades para el reporte de Provisiones Mensual
+3. Generar una excel que genere tres hojas,
+Hoja 1, la suma de los saldos iniciales y finales de cada registro del reporte de EECC
+Hoja 2, la suma de los saldos iniciales y finales de cada registro del reporte de Provisiones Mensuales
+Hoja 3, un cuadro que contenga la suma total de saldos iniciales y finales de ambos reportes por separado e indica la cantidad en el que se diferencian
+4. Salir
+
+MENU REPORTE EECC
+1. Buscar member en los reportes
+2. Crear archivo de suma de saldos y registros
+3. Listado de clientes con saldo final negativo
+4. Members duplicados (generar un archivo si hay clientes repetidos indicando cuántas veces se esta repitiendo y en que archivos se encuentran, en caso no haya duplicados sólo mostrar un mensaje en el menú de que no hay duplicados)
+5. Comparación de Campo CANJE vs Suma de Canjes x producto (CUADRAR CANJE (COLUMNA P) vs SUM DE COLUMNAS Q a AJ) 
+6. Regresar al menú principal
+
+MENU PROVISIONES MENSUAL
+1. Buscar member en los reportes
+2. Crear archivo de suma de saldos y registros
+3. Listado de clientes con saldo final negativo
+4. Members duplicados (generar un archivo si hay clientes repetidos indicando cuántas veces se esta repitiendo y en que archivos se encuentran, en caso no haya duplicados sólo mostrar un mensaje en el menú de que no hay duplicados)
+5. Regresar al menú principal
