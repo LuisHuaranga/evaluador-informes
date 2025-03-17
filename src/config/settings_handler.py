@@ -2,51 +2,63 @@ import json
 from pathlib import Path
 
 class ConfigManager:
-    def __init__(self, config_file="config.json"):
-        self.config_file = Path(config_file)
-        self.config = self._load_config()
+    def __init__(self, file_name="settings.json"):
 
-    def _load_config(self):
-        """Carga el archivo JSON de configuraciones."""
-        if not self.config_file.exists():
-            raise FileNotFoundError(f"El archivo {self.config_file} no existe.")
-        
-        with open(self.config_file, "r") as file:
-            return json.load(file)
+        self.ruta_config = Path(__file__).parent / file_name
 
-    def get(self, key, default=None):
-        """Obtiene un valor de la configuración."""
-        return self.config.get(key, default)
+        self.archivo_config = self._cargar_config()
 
-    def set(self, key, value):
-        """Establece un valor en la configuración."""
-        self.config[key] = value
-        self._save_config()
+        if not self.archivo_config:
+            self.archivo_config = {
+                "rutaECC": "/data1",
+                "rutaPROV": "/data222"
+            }
+            self.guardar_config()
 
-    def _save_config(self):
-        """Guarda los cambios en el archivo JSON."""
-        with open(self.config_file, "w") as file:
-            json.dump(self.config, file, indent=4)
+    def _cargar_config(self):
+        """Carga el archivo JSON y lo almacena en memoria."""
+        if not self.ruta_config.exists():
+            print(f"El archivo {self.ruta_config} no existe. Creando uno nuevo...")
+            return {}
 
-    def __str__(self):
-        """Muestra la configuración actual de forma legible."""
-        return json.dumps(self.config, indent=4)
+        try:
+            return json.loads(self.ruta_config.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            print(f"⚠️ Error al leer JSON: {e}")
+            return {}
+
+    def guardar_config(self):
+        """Guarda la configuración en el archivo JSON."""
+        self.ruta_config.write_text(
+            json.dumps(self.archivo_config, indent=4, ensure_ascii=False), encoding="utf-8")
+
+    def modificar_ruta(self, clave, nueva_ruta):
+        """Modifica una ruta específica en el JSON y la guarda."""
+        if clave in self.archivo_config:
+            self.archivo_config[clave] = nueva_ruta
+            self.guardar_config()
+            print(f" Ruta '{clave}' actualizada a '{nueva_ruta}'.")
+        else:
+            print(f" La clave '{clave}' no existe en la configuración.")
+
+    def obtener_ruta(self, clave):
+        """Obtiene una ruta específica."""
+        return self.archivo_config.get(clave, None)
 
 
-# Ejemplo de uso
 if __name__ == "__main__":
-    try:
-        manager = ConfigManager()
+    config_manager = ConfigManager()
 
-        # Obtener un valor
-        print("Idioma actual:", manager.get("rutaECC"))
+    print("🔹 Configuración actual:", config_manager.archivo_config)
 
-        # Cambiar un valor
-        manager.set("rutaECC", "/OHSSII")
-        print("Idioma actualizado:", manager.get("rutaECC"))
+    # Modificar una ruta existente
+    config_manager.modificar_ruta("rutaECC", "/nueva_ruta_ecc")
 
-        # Mostrar toda la configuración
-        print("\nConfiguración completa:")
-        print(manager)
-    except Exception as e:
-        print(f"Error: {e}")
+    # Verificar la actualización
+    print("🔹 Configuración después de la actualización:", config_manager.archivo_config)
+
+    # Obtener una ruta específica
+    ruta_prov = config_manager.obtener_ruta("rutaPROV")
+    print("🔹 Ruta PROV:", ruta_prov)
+    
+    print("🔹 Ruta Luis:", config_manager.obtener_ruta("luisi"))
