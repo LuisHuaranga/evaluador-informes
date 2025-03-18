@@ -52,7 +52,7 @@ class PestanaPlantilla:
             self.caja_texto.delete(0, tk.END)
             self.caja_texto.insert(0, ruta)
             print(f"Carpeta seleccionada: {ruta}")
-            ConfigManager().modificar_ruta(self.opciones["archivo"], ruta)
+            ConfigManager().put(self.opciones["archivo"] + '.ruta', ruta)
             self.estado_opciones("normal")
 
     def seleccionar_funcion(self, funcion):
@@ -61,7 +61,7 @@ class PestanaPlantilla:
 
     def ejecutar_opcion_seleccionada(self):
         ruta = self.caja_texto.get()
-        ConfigManager().modificar_ruta(self.opciones["archivo"], ruta)
+        ConfigManager().put(self.opciones["archivo"] + '.ruta', ruta)
         if self.funcion_seleccionada:
             self.funcion_seleccionada()
 

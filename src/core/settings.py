@@ -24,7 +24,7 @@ OPTIONS_ECC = {
         ("Crear archivo de suma de saldos y registros",funcion_2),
         ("Listado de clientes con saldo final negativo",funcion_3)
         ],
-    "archivo": 'rutaECC',
+    "archivo": 'ECC',
     "carpeta_reporte": 'Reporte EECC Loyalty'
 }
 
@@ -35,7 +35,7 @@ OPTIONS_PROV = {
         ("Crear arcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",funcion_5),
         ("Listado deÑooooooooooooooooooooo",funcion_6)
         ],
-    "archivo": 'rutaPROV',
+    "archivo": 'PROV',
     "carpeta_reporte": 'Reporte Proveedores'
 }
 

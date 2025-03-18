@@ -6,12 +6,10 @@ carpeta_reporte = carpeta_reporte
 archivos_csv = lista_reportes(carpeta_reporte)
 cabecera = leer_cabecera("cabecera.txt")
         
-class OpcionesECC:
+class Funciones:
         
     def __init__(self,setting_ruta):
-        self.carpeta_reporte = ConfigManager().get_ruta(setting_ruta)
-        self.archivos_csv = archivos_csv
-        self.cabecera = cabecera
+        self.carpeta_reporte = ConfigManager().get_ruta(setting_ruta)        
                
     #Buscar menber en los reportes:
     def buscar_member(self):
@@ -27,4 +25,3 @@ class OpcionesECC:
     # 4. Listado de clientes con saldo final negativo
     def saldo_negativos(self):
         guardar_saldos_negativos(self.carpeta_reporte, self.archivos_csv, self.cabecera)
-
