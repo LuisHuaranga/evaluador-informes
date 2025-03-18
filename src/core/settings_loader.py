@@ -49,16 +49,17 @@ class ConfigManager:
 if __name__ == "__main__":
     config_manager = ConfigManager()
 
-    print("🔹 Configuración actual:", config_manager.archivo_config)
+    #print("🔹 Configuración actual:", config_manager.archivo_config)
 
     # Modificar una ruta existente
     config_manager.modificar_ruta("rutaECC", "/nueva_ruta_ecc")
 
     # Verificar la actualización
-    print("🔹 Configuración después de la actualización:", config_manager.archivo_config)
+    #print("🔹 Configuración después de la actualización:", config_manager.archivo_config)
 
     # Obtener una ruta específica
-    ruta_prov = config_manager.obtener_ruta("rutaPROV")
+    ruta_prov = config_manager.obtener_ruta("ECC")
+    
     print("🔹 Ruta PROV:", ruta_prov)
     
     print("🔹 Ruta Luis:", config_manager.obtener_ruta("luisi"))

@@ -1,0 +1,63 @@
+{
+    "ECC": {
+        "ruta": "/nueva_ruta_ecc",
+        "cabecera": [
+            "MEM_NUM",
+            "COD_UNICO",
+            "NAME",
+            "SALDO_FINAL",
+            "TARJETA_DE_CREDITO",
+            "TC_ACU_BASE",
+            "TC_ACU_DIFERENCIADA",
+            "TARJETA_DE_DEBITO",
+            "TD_ACU_BASE",
+            "TD_ACU_DIFERENCIADA",
+            "BONO_DE_BIENVENIDA",
+            "CAMPANA",
+            "BONIFICACION_ONLINE",
+            "BONOS_POR_ALIANZAS",
+            "TRANSFERENCIA_IN",
+            "CANJE",
+            "CANJE_NIUBIZ",
+            "CANJE_RAPPI",
+            "CANJE_SHOPSTAR",
+            "CANJE_BENEFIT",
+            "CANJE_CANAL_01",
+            "CANJE_CANAL_02",
+            "CANJE_CANAL_03",
+            "CANJE_CANAL_04",
+            "CANJE_CANAL_05",
+            "CANJE_CANAL_06",
+            "CANJE_CANAL_07",
+            "CANJE_CANAL_08",
+            "CANJE_CANAL_09",
+            "CANJE_CANAL_10",
+            "CANJE_CANAL_11",
+            "CANJE_CANAL_12",
+            "CANJE_CANAL_13",
+            "CANJE_CANAL_14",
+            "CANJE_CANAL_15",
+            "CANJE_CANAL_16",
+            "TRANSFERENCIA_OUT",
+            "REGULARIZACION_ABONO",
+            "REGULARIZACION_CARGO",
+            "REG_CASTIGO_INACTIVIDAD",
+            "REG_CASTIGO_MORA",
+            "REG_CASTIGO_CANCELACION_DE_PRODUCTOS",
+            "REG_GANADOS_OTROS_PRODUCTOS_IN",
+            "REG_GANADOS_OTROS_PRODUCTOS_OUT",
+            "SALDO_INICIAL",
+            "MILLAS_VENCIDAS",
+            "MILLAS_POR_VENCER",
+            "TC_DEVOLUCION",
+            "TD_DEVOLUCION",
+            "MILLAS_POR_VENCER_SIG_MES"
+        ]
+    },
+
+    "PROV": {
+        "ruta": "wwww",
+        "cabecera": []
+
+    }
+}
