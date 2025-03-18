@@ -3,9 +3,7 @@ from pathlib import Path
 
 class ConfigManager:
     def __init__(self, file_name="settings.json"):
-
         self.ruta_config = Path(__file__).parent / file_name
-
         self.archivo_config = self._cargar_config()
 
         if not self.archivo_config:
@@ -32,34 +30,39 @@ class ConfigManager:
         self.ruta_config.write_text(
             json.dumps(self.archivo_config, indent=4, ensure_ascii=False), encoding="utf-8")
 
-    def modificar_ruta(self, clave, nueva_ruta):
+    def put(self, clave, nueva_ruta):
         """Modifica una ruta específica en el JSON y la guarda."""
-        if clave in self.archivo_config:
-            self.archivo_config[clave] = nueva_ruta
+        claves = clave.split('.')
+        config = self.archivo_config
+        try:
+            for k in claves[:-1]:
+                config = config[k]
+            config[claves[-1]] = nueva_ruta
             self.guardar_config()
             print(f" Ruta '{clave}' actualizada a '{nueva_ruta}'.")
-        else:
+        except KeyError:
             print(f" La clave '{clave}' no existe en la configuración.")
 
-    def obtener_ruta(self, clave):
-        """Obtiene una ruta específica."""
-        return self.archivo_config.get(clave, None)
-
+    def get(self, clave):
+        """Obtiene una ruta específica, incluso si está anidada."""
+        claves = clave.split('.')
+        valor = self.archivo_config
+        try:
+            for k in claves:
+                valor = valor[k]
+            return valor
+        except KeyError:
+            return None
 
 if __name__ == "__main__":
     config_manager = ConfigManager()
 
-    #print("🔹 Configuración actual:", config_manager.archivo_config)
-
     # Modificar una ruta existente
-    config_manager.modificar_ruta("rutaECC", "/nueva_ruta_ecc")
+    config_manager.put("ECC.ruta", "/nueva_XD")
+    config_manager.put("PROV.ruta", "cabecera_SEXO")
 
     # Verificar la actualización
-    #print("🔹 Configuración después de la actualización:", config_manager.archivo_config)
+    ruta_prov = config_manager.get("ECC.ruta")
+    print("🔹 Ruta ECC:", ruta_prov)
 
-    # Obtener una ruta específica
-    ruta_prov = config_manager.obtener_ruta("ECC")
-    
-    print("🔹 Ruta PROV:", ruta_prov)
-    
-    print("🔹 Ruta Luis:", config_manager.obtener_ruta("luisi"))
+    print("🔹 ECC cabecera:", config_manager.get("ECC.cabecera")[0])

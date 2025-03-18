@@ -1,6 +1,6 @@
 {
     "ECC": {
-        "ruta": "/nueva_ruta_ecc",
+        "ruta": "aaaEEEEE",
         "cabecera": [
             "MEM_NUM",
             "COD_UNICO",
@@ -54,10 +54,8 @@
             "MILLAS_POR_VENCER_SIG_MES"
         ]
     },
-
     "PROV": {
-        "ruta": "wwww",
+        "ruta": "EXO",
         "cabecera": []
-
     }
 }
