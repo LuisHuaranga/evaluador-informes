@@ -1,4 +1,4 @@
-from services.funcionesECC import *
+from services.ecc_service import *
 import os
 import time
 

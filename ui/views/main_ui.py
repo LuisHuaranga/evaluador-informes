@@ -2,7 +2,7 @@ import tkinter as tk
 from ui.views.pestana_plantilla import PestanaPlantilla
 from tkinter import ttk
 from ui.config.config import *
-from src.config.opciones import *
+from src.core.settings import *
 
 class MainUI(tk.Tk):
     def __init__(self):
@@ -27,8 +27,8 @@ class MainUI(tk.Tk):
         self.notebook.add(self.pestana1, text='Estado de Cuenta')
         self.notebook.add(self.pestana2, text='Proviciones Mensuales')
         
-        PestanaPlantilla(self.pestana1,OPCIONES_EEC)
-        PestanaPlantilla(self.pestana2,OPCIONES_PROV)
+        PestanaPlantilla(self.pestana1,OPTIONS_ECC)
+        PestanaPlantilla(self.pestana2,OPTIONS_PROV)
 
 
 if __name__ == '__main__':
